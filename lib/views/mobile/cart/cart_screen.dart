@@ -40,7 +40,9 @@ class _OrderView extends StatefulWidget {
 
 class _OrderViewState extends State<_OrderView> {
   int cartCount = 1;
-  final cartItems = OrderMenu.getCartItems();
+
+  var cartItems = OrderMenu.getCartItems();
+  var list = new List<int>.generate(8,(i) => 1);
 
   @override
   Widget build(BuildContext context) {
@@ -48,83 +50,6 @@ class _OrderViewState extends State<_OrderView> {
       padding: const EdgeInsets.all(10.0),
       child: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Image.asset(
-                'assets/images/food1.jpg',
-                height: 60.0,
-                width: 60.0,
-              ),
-              UIHelper.horizontalSpaceSmall(),
-              Column(
-                children: <Widget>[
-                  Text('Breakfast Express', style: Theme.of(context).textTheme.subtitle2),
-                  UIHelper.verticalSpaceExtraSmall(),
-                  Text('OMR Perungudi', style: Theme.of(context).textTheme.bodyText1)
-                ],
-              ),
-            ],
-          ),
-          UIHelper.verticalSpaceLarge(),
-          Row(
-            children: <Widget>[
-              VegBadgeView(),
-              UIHelper.horizontalSpaceSmall(),
-              Flexible(
-                child: Text(
-                  'Aloo Paratha with Curd and Pickle',
-                  style: Theme.of(context).textTheme.bodyText1,
-                ),
-              ),
-              UIHelper.horizontalSpaceSmall(),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                height: 35.0,
-                width: 100.0,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    InkWell(
-                      child: Icon(Icons.remove, color: Colors.green),
-                      onTap: () {
-                        if (cartCount > 0) {
-                          setState(() {
-                            cartCount -= 1;
-                          });
-                        }
-                      },
-                    ),
-                    Spacer(),
-                    Text('$cartCount', style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 16.0)),
-                    Spacer(),
-                    InkWell(
-                      child: Icon(Icons.add, color: Colors.green),
-                      onTap: () {
-                        setState(() {
-                          cartCount += 1;
-                        });
-                      },
-                    )
-                  ],
-                ),
-              ),
-              UIHelper.horizontalSpaceSmall(),
-              Text(
-                'Rs125',
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-            ],
-          ),
-          UIHelper.verticalSpaceExtraLarge(),
-          CustomDividerView(
-            dividerHeight: 1.0,
-            color: Colors.grey[400],
-          ),
           UIHelper.verticalSpaceMedium(),
           Row(
             children: <Widget>[
@@ -196,23 +121,21 @@ class _OrderViewState extends State<_OrderView> {
                                     InkWell(
                                       child: Icon(Icons.remove, color: Colors.green),
                                       onTap: () {
-                                        if (cartItems[index].quantity > 0) {
+                                        if (list[index] > 0) {
                                           setState(() {
-                                            cartCount = cartItems[index].quantity;
-                                            cartCount -= 1;
+                                            list[index] -= 1;
                                           });
                                         }
                                       },
                                     ),
                                     Spacer(),
-                                    Text('$cartCount', style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 16.0)),
+                                    Text(list[index].toString(), style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 16.0)),
                                     Spacer(),
                                     InkWell(
                                       child: Icon(Icons.add, color: Colors.green),
                                       onTap: () {
                                         setState(() {
-                                          cartCount = cartItems[index].quantity;
-                                          cartCount += 1;
+                                          list[index] += 1;
                                         });
                                       },
                                     )
@@ -221,7 +144,7 @@ class _OrderViewState extends State<_OrderView> {
                               ),
                               UIHelper.horizontalSpaceSmall(),
                               Text(
-                                'Rs. ' + (cartCount*cartItems[index].price).toString(),
+                                'Rs. ' + (list[index]*cartItems[index].price).toString(),
                                 style: Theme.of(context).textTheme.bodyText1,
                               ),
                               UIHelper.horizontalSpaceSmall(),
@@ -281,37 +204,10 @@ class _BillDetailView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text('Item total', style: textStyle),
-              Text('Rs 129.00', style: textStyle),
+              Text('Rs 1280.00', style: textStyle),
             ],
           ),
           UIHelper.verticalSpaceMedium(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text('Delivery Fee', style: textStyle),
-                        UIHelper.horizontalSpaceSmall(),
-                        Icon(Icons.info_outline, size: 14.0)
-                      ],
-                    ),
-                    UIHelper.verticalSpaceSmall(),
-                    Text(
-                      'Your Delivery Partner is travelling long distance to deliver your order',
-                      style: Theme.of(context).textTheme.bodyText1.copyWith(fontSize: 13.0),
-                    ),
-                  ],
-                ),
-              ),
-              Text('Rs 54.00', style: textStyle),
-            ],
-          ),
-          UIHelper.verticalSpaceLarge(),
           _buildDivider(),
           Container(
             alignment: Alignment.center,
@@ -322,7 +218,7 @@ class _BillDetailView extends StatelessWidget {
                 UIHelper.horizontalSpaceSmall(),
                 Icon(Icons.info_outline, size: 14.0),
                 Spacer(),
-                Text('Rs 26.67', style: textStyle),
+                Text('Rs 20.00', style: textStyle),
               ],
             ),
           ),
@@ -334,7 +230,7 @@ class _BillDetailView extends StatelessWidget {
               children: <Widget>[
                 Text('To Pay', style: Theme.of(context).textTheme.subtitle2),
                 Spacer(),
-                Text('Rs 210.00', style: textStyle),
+                Text('Rs 2000.00', style: textStyle),
               ],
             ),
           ),
@@ -366,22 +262,6 @@ class _AddressPaymentView extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            height: 50.0,
-            color: Colors.black,
-            child: Row(
-              children: <Widget>[
-                Icon(Icons.phone, color: Colors.yellow[800]),
-                UIHelper.horizontalSpaceSmall(),
-                Expanded(
-                  child: Text(
-                    'Want your order left outside? Call delivery executive',
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.white),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
             padding: const EdgeInsets.all(20.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -398,7 +278,7 @@ class _AddressPaymentView extends StatelessWidget {
                           width: 1.0,
                         ),
                       ),
-                      child: Icon(Icons.add_location, size: 30.0),
+                      child: Icon(Icons.restaurant, size: 30.0),
                     ),
                     Positioned(
                       top: 0.0,
@@ -416,11 +296,11 @@ class _AddressPaymentView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Deliver to Other',
+                        'Approximate Preparation Time for TakeOut',
                         style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 16.0),
                       ),
                       Text(
-                        'Keelkattalai',
+                        'Namma Veedu Vasanta Bhavan',
                         style: Theme.of(context).textTheme.bodyText1.copyWith(color: Colors.grey),
                       ),
                       UIHelper.verticalSpaceSmall(),
@@ -431,14 +311,6 @@ class _AddressPaymentView extends StatelessWidget {
                     ],
                   ),
                 ),
-                InkWell(
-                  child: Text(
-                    'ADD ADDRESS',
-                    style: Theme.of(context).textTheme.subtitle2.copyWith(color: darkOrange),
-                  ),
-                  onTap: () {},
-                ),
-                UIHelper.verticalSpaceMedium(),
               ],
             ),
           ),
@@ -453,7 +325,7 @@ class _AddressPaymentView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Rs210.00',
+                        'Rs. 2000.00',
                         style: Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 16.0),
                       ),
                       UIHelper.verticalSpaceExtraSmall(),

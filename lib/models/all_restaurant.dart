@@ -215,7 +215,7 @@ class LargeRestaurantBanner {
       ),
       LargeRestaurantBanner(
         image: 'assets/images/food4.jpg',
-        title: 'Banu\n Bhavan',
+        title: 'Banu Bhavan',
         subtitle: 'Biryani, Chicken, Mutton',
       ),
       LargeRestaurantBanner(

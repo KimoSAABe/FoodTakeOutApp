@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/restaurant_detail.dart';
-import 'package:swiggy_ui/models/tab_desktop/order_menu.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/veg_badge_view.dart';
-import 'package:provider/provider.dart';
 
 class RestaurantDetailScreen extends StatelessWidget {
   @override
@@ -52,17 +50,17 @@ class _OrderNowView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       _buildVerticalStack(context, '4.1', 'Packaging 80%'),
-                      _buildVerticalStack(context, '29 mins', 'Delivery Time'),
-                      _buildVerticalStack(context, 'Rs150', 'For Two'),
+                      _buildVerticalStack(context, '29 mins', 'Preparation Time'),
+                      _buildVerticalStack(context, 'Rs 250', 'For Two'),
                     ],
                   ),
                   CustomDividerView(dividerHeight: 1.0),
                   UIHelper.verticalSpaceMedium(),
                   Column(
                     children: <Widget>[
-                      _buildOfferTile(context, '30% off up to Rs75 | Use code TAKEOUT'),
+                      _buildOfferTile(context, '30% off up to Rs 75 | Use code TAKEOUT'),
                       _buildOfferTile(
-                          context, '20% off up to Rs100 with SBI credit cards, once per week | Use code 100SBI')
+                          context, '20% off up to Rs 100 with credit cards, once per week | Use code 100OFF')
                     ],
                   ),
                   UIHelper.verticalSpaceSmall(),
