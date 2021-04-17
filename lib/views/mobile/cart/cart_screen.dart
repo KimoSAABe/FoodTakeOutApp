@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:swiggy_ui/models/tab_desktop/order_menu.dart';
 import 'package:swiggy_ui/utils/app_colors.dart';
 import 'package:swiggy_ui/utils/ui_helper.dart';
+import 'package:swiggy_ui/views/mobile/payment/payment_screen.dart';
 import 'package:swiggy_ui/widgets/custom_divider_view.dart';
 import 'package:swiggy_ui/widgets/veg_badge_view.dart';
 
@@ -338,17 +339,28 @@ class _AddressPaymentView extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(10.0),
-                  color: Colors.green,
-                  height: 58.0,
-                  child: Text(
-                    'PROCEED TO PAY',
-                    style: Theme.of(context).textTheme.subtitle2.copyWith(color: Colors.white),
+                  child: ButtonTheme(
+                    height: 58.0,
+                    padding: const EdgeInsets.all(10.0),
+                    child: RaisedButton(
+                      color: Colors.green,
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        "PROCEED TO PAY",
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle2
+                            .copyWith(color: Colors.white),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Payment()),
+                        );
+                      },
+                    ),
                   ),
-                ),
-              )
+              ),
             ],
           )
         ],

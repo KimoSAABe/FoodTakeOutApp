@@ -33,19 +33,19 @@ List<Map<String, dynamic>> historyContainerList = [
 List<Map<String, dynamic>> transactions_stat = [
   {
     'count': 73,
-    'color': Color(0xff1b4dfe),
+    'color': Colors.deepOrange,
     'text': 'Waiting For Confirmation',
     'text_color': Colors.white,
   },
   {
     'count': 49,
-    'color': Color(0xff112f5f),
+    'color': Colors.redAccent,
     'text': 'Be Pairing',
     'text_color': Colors.white,
   },
   {
     'count': 9,
-    'color': Color(0xff1bc29f),
+    'color': Colors.purple,
     'text': 'In Progress',
     'text_color': Colors.white,
   },
@@ -58,7 +58,7 @@ List<Map<String, dynamic>> transactions_stat = [
   },
   {
     'count': 0,
-    'color': Color(0xfff3e8d9),
+    'color': Colors.red,
     'text': 'Objection or failure',
     'text_color': Color(0xffe59f45),
   },
