@@ -27,7 +27,7 @@ class TransactionsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                "Transactions",
+                "Order Summary",
                 style: Theme.of(context)
                     .textTheme
                     .headline
@@ -53,7 +53,7 @@ class TransactionsScreen extends StatelessWidget {
                 height: 15.0,
               ),
               Text(
-                "New Transactions",
+                "New Orders",
                 style: Theme.of(context)
                     .textTheme
                     .title

@@ -37,24 +37,18 @@ class TransactionContainer extends StatelessWidget {
         SizedBox(height: 11),
         Row(
           children: <Widget>[
-            Text("Originator: "),
+            Text("Order: ", style: TextStyle(fontWeight: FontWeight.bold),),
             Text("${transactions[i]['originator']}")
           ],
         ),
         SizedBox(height: 5),
         Row(
           children: <Widget>[
-            Text("Transaction Number: "),
+            Text("Transaction ID: ", style: TextStyle(fontWeight: FontWeight.bold),),
             Text("${transactions[i]['transaction_number']}")
           ],
         ),
         SizedBox(height: 5),
-        Row(
-          children: <Widget>[
-            Text("Type: "),
-            Text("${transactions[i]['type']}")
-          ],
-        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
@@ -75,7 +69,7 @@ class TransactionContainer extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: () {},
-              color: lightBlue,
+              color: Colors.green,
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(9.0),

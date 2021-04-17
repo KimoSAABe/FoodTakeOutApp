@@ -12,7 +12,7 @@ class AdminScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: darkOrange,
         iconTheme: IconThemeData(color: Colors.black87),
         elevation: 0,
         leading: IconButton(
@@ -27,7 +27,7 @@ class AdminScreen extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(15.0),
+        padding: EdgeInsets.fromLTRB(15.0,0.0,15.0,0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -39,6 +39,7 @@ class AdminScreen extends StatelessWidget {
                       image: AssetImage("assets/images/hotelBig.png"),
                       fit: BoxFit.cover
                   ),
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40))
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,11 +54,6 @@ class AdminScreen extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          Text("Yoshimasa Sushi", style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 20
-                          ),),
                           SizedBox(height: 10,),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -78,7 +74,7 @@ class AdminScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 15,),
-                  Text("Lorem ipsum dolar sits amet is used in print industry", style: TextStyle(
+                  Text("Our Motto. Eat. Sleep. Work. Repeat.", style: TextStyle(
                       color: Colors.white,
                       fontSize: 12
                   ),)
@@ -86,14 +82,14 @@ class AdminScreen extends StatelessWidget {
               ),
             ),
             Text(
-              "Hello,",
+              "Namma Veedu Vasanta Bhavan",
               style: Theme.of(context)
                   .textTheme
                   .display1
-                  .apply(color: Colors.grey[500]),
+                  .apply(color: Colors.black54),
             ),
             Text(
-              "Mr. $username",
+              "Hello, Mr. $username",
               style: Theme.of(context)
                   .textTheme
                   .display1
