@@ -9,23 +9,24 @@ import 'cart/cart_screen.dart';
 
 class HomeBottomNavigationScreen extends StatefulWidget {
   @override
-  _HomeBottomNavigationScreenState createState() => _HomeBottomNavigationScreenState();
+  _HomeBottomNavigationScreenState createState() =>
+      _HomeBottomNavigationScreenState();
 }
 
-class _HomeBottomNavigationScreenState extends State<HomeBottomNavigationScreen> {
-
+class _HomeBottomNavigationScreenState
+    extends State<HomeBottomNavigationScreen> {
   final List<Widget> _children = [
     TakeOutScreen(),
     SearchScreen(),
     CartScreen(),
-    AdminScreen(),
   ];
 
   int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final labelTextStyle = Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 8.0);
+    final labelTextStyle =
+        Theme.of(context).textTheme.subtitle2.copyWith(fontSize: 8.0);
     return Scaffold(
       body: _children[selectedIndex],
       bottomNavigationBar: SizedBox(
@@ -45,19 +46,18 @@ class _HomeBottomNavigationScreenState extends State<HomeBottomNavigationScreen>
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'TAKEOUT',
+              title: new Container(),
+              // label: 'TAKEOUT',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
-              label: 'SEARCH',
+              title: Container(),
+              // label: 'SEARCH',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.add_shopping_cart),
-              label: 'CART',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              label: 'ACCOUNT',
+              title: new Container(),
+              // label: 'CART',
             ),
           ],
         ),
