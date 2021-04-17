@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/ui/screens/home.dart';
 import 'package:swiggy_ui/views/mobile/search/search_screen.dart';
 import 'package:swiggy_ui/views/mobile/takeout/takeout_screen.dart';
 
 import '../../utils/app_colors.dart';
+import 'account/account_screen.dart';
 import 'cart/cart_screen.dart';
 
 class HomeBottomNavigationScreen extends StatefulWidget {
@@ -16,6 +18,7 @@ class _HomeBottomNavigationScreenState extends State<HomeBottomNavigationScreen>
     TakeOutScreen(),
     SearchScreen(),
     CartScreen(),
+    AdminScreen(),
   ];
 
   int selectedIndex = 0;
@@ -51,6 +54,10 @@ class _HomeBottomNavigationScreenState extends State<HomeBottomNavigationScreen>
             BottomNavigationBarItem(
               icon: Icon(Icons.add_shopping_cart),
               label: 'CART',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              label: 'ACCOUNT',
             ),
           ],
         ),
