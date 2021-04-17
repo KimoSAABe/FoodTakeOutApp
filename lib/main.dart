@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:swiggy_ui/views/mobile/login/login_screen.dart';
 import 'shared/app_theme.dart';
 import 'views/mobile/mobile_screen.dart';
 import 'widgets/responsive.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: appPrimaryTheme(),
       home: Responsive(
-        mobile: MobileScreen(),
+        mobile: LoginPage(),
       ),
     );
   }

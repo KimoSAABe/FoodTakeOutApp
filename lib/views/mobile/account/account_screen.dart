@@ -210,16 +210,16 @@ class _PastOrderListView extends StatelessWidget {
             foodItem: foods[index],
           ),
         ),
-        TextButton(
-          child: Text(
-            'VIEW MORE ORDERS',
-            style: Theme.of(context)
-                .textTheme
-                .subtitle2
-                .copyWith(color: darkOrange),
-          ),
-          onPressed: () {},
-        ),
+        // TextButton(
+        //   child: Text(
+        //     'VIEW MORE ORDERS',
+        //     style: Theme.of(context)
+        //         .textTheme
+        //         .subtitle2
+        //         .copyWith(color: darkOrange),
+        //   ),
+        //   onPressed: () {},
+        // ),
         UIHelper.verticalSpaceSmall(),
         CustomDividerView(),
         Row(
@@ -303,7 +303,8 @@ class _PastOrdersListItemView extends StatelessWidget {
                   ],
                 ),
                 Spacer(),
-                Text('Pending...', style: Theme.of(context).textTheme.subtitle2),
+                Text('Pending...',
+                    style: Theme.of(context).textTheme.subtitle2),
                 UIHelper.horizontalSpaceSmall(),
                 ClipOval(
                   child: Container(
