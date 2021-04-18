@@ -12,7 +12,7 @@ class AdminScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: darkOrange,
+        backgroundColor: Colors.orange[400],
         iconTheme: IconThemeData(color: Colors.black87),
         elevation: 0,
         leading: IconButton(
@@ -58,10 +58,10 @@ class AdminScreen extends StatelessWidget {
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Icon(Icons.star, color: Colors.white,),
-                              Icon(Icons.star, color: Colors.white,),
-                              Icon(Icons.star, color: Colors.white,),
-                              Icon(Icons.star, color: Colors.white,),
+                              Icon(Icons.star, color: Colors.yellow,),
+                              Icon(Icons.star, color: Colors.yellow,),
+                              Icon(Icons.star, color: Colors.yellow,),
+                              Icon(Icons.star, color: Colors.yellow,),
                               Icon(Icons.star, color: Colors.white,),
                               Text(" 250 Reviews", style: TextStyle(
                                   color: Colors.white,
@@ -87,6 +87,7 @@ class AdminScreen extends StatelessWidget {
                   .textTheme
                   .display1
                   .apply(color: Colors.black54),
+              textScaleFactor: 0.90,
             ),
             Text(
               "Hello, Mr. $username",
@@ -94,6 +95,7 @@ class AdminScreen extends StatelessWidget {
                   .textTheme
                   .display1
                   .apply(color: darkOrange, fontWeightDelta: 2),
+              textScaleFactor: 0.80,
             ),
             SizedBox(
               height: 15.0,

@@ -15,6 +15,9 @@ class StatesDetailContainer extends StatelessWidget {
         border: transactions_stat[i]['border'] ?? Border(),
         borderRadius: BorderRadius.circular(15.0),
         color: transactions_stat[i]['color'],
+        boxShadow: [
+          BoxShadow(color: Colors.grey[200], blurRadius: 14),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
